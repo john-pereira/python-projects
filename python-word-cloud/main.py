@@ -1,6 +1,7 @@
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
+# read the word from a txt file
 with open('words.txt', 'r') as f:
     text = f.read()
 
