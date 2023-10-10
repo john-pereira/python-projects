@@ -2,6 +2,8 @@ from modules import functions
 import PySimpleGUI as sg
 import time
 
+# PySimpleGUI must be installed in order to the code work correctly
+
 sg.theme("Reddit")
 
 clock = sg.Text('', key='clock')
