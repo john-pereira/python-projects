@@ -10,11 +10,12 @@ ToDo app with a graphical user interface (GUI). This app allows you to perform v
 
 YouTube downloader with a GUI interface. This app facilitates the process of downloading videos in the highest quality from a given URL.
 
-3. Words Clouds
+3. Words Cloud
 
 A simple code that use the library wordcloud to create a clouds of words from a txt file. The user type the words in the text file and the code extract these words to create a cloud image of it.
 
 4. Image Color Extractor
+   
 From a image provide by the user in the same directory of the main.py the code extract the color that the image cotains. In this project I have used the libaries numpy, matplotlib and sklearn. 
 
 How to Use
