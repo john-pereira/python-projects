@@ -1,31 +1,23 @@
+import re
 from urllib.request import urlopen
 
-url = "https://www.coelhodiniz.com.br/"
-
+url = "https://www.bretas.com.br/"
 page = urlopen(url)
+html = page.read().decode("utf-8")
 
 """
-To extract the HTML from the page, first use the HTTPResponse object’s .read() method,
-which returns a sequence of bytes. Then use .decode() to decode the bytes to a string using UTF-8
+<title.*?> matches the opening <TITLE > tag in html. 
+The <title part of the pattern matches with <TITLE because re.search() is called with re.IGNORECASE,
+ and .*?> matches any text after <TITLE up to the first instance of >.
 """
+pattern = "<title.*?>.*?</title.*?>"
+match_results = re.search(pattern, html, re.IGNORECASE)
+title = match_results.group()
 
-html_bytes = page.read()
-# html = html_bytes.decode("utf-8")
-html = html_bytes.decode("latin-1")
+"""
+*? non-greedily matches all text after the opening <TITLE >, stopping at the first match for </title.*?>.
+</title.*?> differs from the first pattern only in its use of the / character, so it matches the closing </title  / > tag in html
+"""
+title = re.sub("<.*?>", "", title) # Remove HTML tags
 
-
-# print(html)
-
-title_index = html.find("<title>")
-# title_index
-
-start_index = title_index + len("<title>")
-# start_index
-
-end_index = html.find("</title>")
-# end_index
-
-title = html[start_index:end_index]
 print(title)
-
-
